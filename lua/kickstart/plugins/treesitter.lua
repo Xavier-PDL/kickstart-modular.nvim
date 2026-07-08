@@ -17,6 +17,12 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+      -- Workaround: Neovim 0.12.x / nvim-treesitter nil node crash in markdown injections.
+      -- Remove once nvim-treesitter ships a fix for query_predicates.lua:141.
+      vim.treesitter.query.set('markdown', 'injections', '')
+    end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --

@@ -26,6 +26,16 @@ vim.keymap.set('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp
 vim.keymap.set('n', '<leader>sd', telescope.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 
+vim.keymap.set('n', '<leader>cx', function()
+  local line = vim.api.nvim_get_current_line()
+  local new_line = line:gsub('%[([%sx])%]', function(state)
+    return state == ' ' and '[x]' or '[ ]'
+  end)
+  if new_line ~= line then
+    vim.api.nvim_set_current_line(new_line)
+  end
+end, { desc = '[C]heckbo[x] toggle' })
+
 vim.keymap.set('n', '<leader>bt', function()
   local today = os.date '%Y-%m-%d'
   vim.cmd('edit ' .. vim.fn.expand('~/.brain/notes/daily/') .. today .. '.md')
