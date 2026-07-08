@@ -26,6 +26,11 @@ vim.keymap.set('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp
 vim.keymap.set('n', '<leader>sd', telescope.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 
+vim.keymap.set('n', '<leader>bt', function()
+  local today = os.date '%Y-%m-%d'
+  vim.cmd('edit ' .. vim.fn.expand('~/.brain/notes/daily/') .. today .. '.md')
+end, { desc = '[B]rain [T]oday' })
+
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
