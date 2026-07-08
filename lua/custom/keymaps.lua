@@ -24,6 +24,7 @@ vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope [F]in
 vim.keymap.set('n', '<leader> ', telescope.buffers, { desc = '[F]ind open [B]uffers' })
 vim.keymap.set('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sd', telescope.diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
   expr = true,
