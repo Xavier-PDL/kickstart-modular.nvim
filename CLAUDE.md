@@ -48,7 +48,6 @@ lua/
         ├── copilot.lua     # GitHub Copilot
         ├── neogit.lua      # Git interface
         ├── fugitive.lua    # Git commands
-        ├── git-blame.lua   # Git blame
         ├── neogen.lua      # Documentation generator
         └── ...
 ```
@@ -171,7 +170,6 @@ Important mappings:
 - **copilot.vim** - GitHub Copilot integration
 - **neogit** - Magit-like Git interface
 - **fugitive** - Git commands
-- **git-blame.nvim** - Git blame annotations
 - **neogen** - Documentation string generator
 - **vim-tmux-navigator** - Seamless tmux/vim navigation
 - **guess-indent** - Auto-detect indentation

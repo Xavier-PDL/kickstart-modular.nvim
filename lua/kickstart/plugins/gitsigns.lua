@@ -17,6 +17,8 @@ return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
+      -- Options used when current-line blame is toggled on via <leader>tb
+      current_line_blame_opts = { delay = 10, virt_text_pos = 'eol' },
       signs = {
         add = { text = '+' },
         change = { text = '~' },
