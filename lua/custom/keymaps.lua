@@ -7,8 +7,11 @@ vim.keymap.set('x', '<C-/>', 'gc', { remap = true, desc = 'Toggle comment select
 -- Some terminals send <C-_> instead of <C-/>
 vim.keymap.set('n', '<C-_>', 'gcc', { remap = true, desc = 'Toggle comment line' })
 vim.keymap.set('x', '<C-_>', 'gc', { remap = true, desc = 'Toggle comment selection' })
-vim.keymap.set('n', '<leader>,', '^w<')
-vim.keymap.set('n', '<leader>.', '^w>')
+-- Resize windows with Ctrl + arrow keys (arrow points the way the split grows)
+vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<CR>', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<CR>', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<CR>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<CR>', { desc = 'Increase window width' })
 vim.keymap.set('n', '<leader>gg', ':Neogit kind=floating<CR>')
 -- vim.keymap.set('n', '<leader>pu', ':Git push<CR>')
 vim.keymap.set('n', '<leader>oc', ':e %:h<CR>', { desc = '[O]pen [C]urrent directory' })
