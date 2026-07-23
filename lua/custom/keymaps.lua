@@ -1,4 +1,3 @@
-vim.keymap.set('n', 's', 'cl') -- for some reason this got mapped to nop?
 vim.keymap.set('n', '<Up>', '<C-w>k')
 vim.keymap.set('n', '<Down>', '<C-w>j')
 vim.keymap.set('n', '<Left>', '<C-w>h')
