@@ -9,6 +9,26 @@ return {
         markdown = { 'markdownlint' },
       }
 
+      -- Point markdownlint at the XDG global config. markdownlint won't discover
+      -- config outside a file's own directory tree, so pass it explicitly. If a
+      -- project ships its own .markdownlint.* it wins (resolved per-run), since
+      -- --config otherwise suppresses that discovery.
+      local xdg_config = (vim.env.XDG_CONFIG_HOME or (vim.env.HOME .. '/.config')) .. '/markdownlint/config.yaml'
+      lint.linters.markdownlint.args = {
+        '--config',
+        function()
+          local project = vim.fs.find({
+            '.markdownlint.jsonc',
+            '.markdownlint.json',
+            '.markdownlint.yaml',
+            '.markdownlint.yml',
+            '.markdownlintrc',
+          }, { upward = true, path = vim.fn.expand '%:p:h', stop = vim.env.HOME })
+          return project[1] or xdg_config
+        end,
+        '--stdin',
+      }
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
