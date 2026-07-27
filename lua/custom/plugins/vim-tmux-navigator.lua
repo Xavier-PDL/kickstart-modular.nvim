@@ -1,5 +1,10 @@
 return {
   'christoomey/vim-tmux-navigator',
+  -- Disable the plugin's default <C-hjkl> / <C-\> maps; navigation lives on
+  -- <M-hjkl> (defined in `keys` below), matching the tmux-side bindings.
+  init = function()
+    vim.g.tmux_navigator_no_mappings = 1
+  end,
   lazy = false,
   cmd = {
     'TmuxNavigateLeft',
