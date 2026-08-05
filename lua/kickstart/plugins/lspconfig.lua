@@ -210,7 +210,6 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -220,6 +219,34 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+
+        -- Pyright resolves imports against whichever `python` it finds on PATH. Under pyenv/poetry
+        -- that is the global interpreter rather than the project's virtualenv, so every third-party
+        -- import reports as unresolved and navigation into libraries returns nothing. Point it at
+        -- the project venv instead.
+        --
+        -- This runs in `on_init` rather than `before_init` because pyright pulls its configuration
+        -- via `workspace/configuration`, which Neovim answers out of `client.settings` — a snapshot
+        -- taken before `before_init` gets to mutate `config.settings`.
+        pyright = {
+          on_init = function(client)
+            local root = client.root_dir or vim.fn.getcwd()
+            local candidates = { root .. '/.venv/bin/python', root .. '/venv/bin/python' }
+            if vim.env.VIRTUAL_ENV then
+              table.insert(candidates, vim.env.VIRTUAL_ENV .. '/bin/python')
+            end
+            for _, python in ipairs(candidates) do
+              if vim.uv.fs_stat(python) then
+                client.settings = vim.tbl_deep_extend('force', client.settings or {}, {
+                  python = { pythonPath = python },
+                })
+                return
+              end
+            end
+          end,
+        },
+
+        ruff = {},
 
         lua_ls = {
           -- cmd = { ... },
