@@ -23,7 +23,8 @@ vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]e
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[N]ame' })
 local telescope = require 'telescope.builtin'
 vim.keymap.set('n', 'gd', telescope.lsp_definitions, { desc = '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gr', telescope.lsp_references, { desc = '[G]oto [R]eferences' })
+-- No bare `gr` map: it would shadow the buffer-local grn/gra/grr/gri/grd/grt LSP family behind a
+-- `timeoutlen` wait. Use `grr` for references.
 vim.keymap.set('n', 'ff', telescope.find_files, { desc = 'Telescope [F]ind [F]iles' })
 vim.keymap.set('n', '<leader>gf', telescope.git_files, { desc = 'Telescope [G]it [F]iles' })
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope [F]ind with [G]rep' })
