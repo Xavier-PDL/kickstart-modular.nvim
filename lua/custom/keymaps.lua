@@ -44,7 +44,7 @@ end, { desc = '[C]heckbo[x] toggle' })
 
 vim.keymap.set('n', '<leader>bt', function()
   local today = os.date '%Y-%m-%d'
-  vim.cmd('edit ' .. vim.fn.expand('~/.brain/notes/daily/') .. today .. '.md')
+  vim.cmd('edit ' .. vim.fn.expand '~/.brain/notes/daily/' .. today .. '.md')
 end, { desc = '[B]rain [T]oday' })
 
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
