@@ -12,7 +12,6 @@ vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<CR>', { desc = 'Increase window he
 vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<CR>', { desc = 'Decrease window height' })
 vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<CR>', { desc = 'Decrease window width' })
 vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<CR>', { desc = 'Increase window width' })
-vim.keymap.set('n', '<leader>gg', ':Neogit kind=floating<CR>')
 -- vim.keymap.set('n', '<leader>pu', ':Git push<CR>')
 vim.keymap.set('n', '<leader>oc', ':e %:h<CR>', { desc = '[O]pen [C]urrent directory' })
 vim.keymap.set('n', '<leader>bx', ':%bd|e#|bd#<CR>', { desc = 'Delete [b]uffers e[x]cept current' })

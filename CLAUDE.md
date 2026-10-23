@@ -46,7 +46,7 @@ lua/
         ├── init.lua        # Empty placeholder
         ├── oil.lua         # File explorer
         ├── copilot.lua     # GitHub Copilot
-        ├── neogit.lua      # Git interface
+        ├── lazygit.lua     # Git interface
         ├── fugitive.lua    # Git commands
         ├── neogen.lua      # Documentation generator
         └── ...
@@ -156,7 +156,8 @@ Important mappings:
 - `ff` - Telescope find files
 - `<leader>fg` - Telescope live grep
 - `<leader> ` - List open buffers
-- `<leader>gg` - Open Neogit
+- `<leader>lg` - Open lazygit
+- `<leader>lf` - Open lazygit filtered to the current file
 - `<leader>bx` - Delete all buffers except current
 - `<leader>ng` - Generate documentation (Neogen)
 - `<leader>ad/ae` - Ansible vault decrypt/encrypt
@@ -168,7 +169,7 @@ Important mappings:
 
 - **oil.nvim** - File explorer (replaces netrw)
 - **copilot.vim** - GitHub Copilot integration
-- **neogit** - Magit-like Git interface
+- **lazygit.nvim** - Floating-terminal wrapper around the `lazygit` TUI
 - **fugitive** - Git commands
 - **neogen** - Documentation string generator
 - **vim-tmux-navigator** - Seamless tmux/vim navigation
@@ -193,5 +194,6 @@ Required for full functionality:
 - Git, make, unzip, C compiler (gcc)
 - ripgrep (for Telescope live_grep)
 - fd (for Telescope find_files)
+- lazygit (for lazygit.nvim)
 - Language servers via Mason (installed per-project needs)
 - Optional: Nerd Font for icons
