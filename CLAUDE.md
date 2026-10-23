@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal Neovim configuration based on [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim), a modular fork of the popular kickstart.nvim starter config. It uses Lua for configuration and lazy.nvim for plugin management.
+This is a personal Neovim configuration based on
+[kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim), a modular fork of the popular
+kickstart.nvim starter config. It uses Lua for configuration and lazy.nvim for plugin management.
 
 ## Architecture
 
@@ -54,9 +56,11 @@ lua/
 
 ### Plugin System
 
-Plugins are defined using lazy.nvim's declarative syntax. Each plugin file in `lua/kickstart/plugins/` or `lua/custom/plugins/` returns a lazy.nvim plugin spec (table).
+Plugins are defined using lazy.nvim's declarative syntax. Each plugin file in `lua/kickstart/plugins/` or
+`lua/custom/plugins/` returns a lazy.nvim plugin spec (table).
 
 **Example plugin structure:**
+
 ```lua
 return {
   'author/plugin-name',
@@ -71,6 +75,7 @@ return {
 ```
 
 The `lua/lazy-plugins.lua` file imports all plugins via:
+
 - Individual `require` statements for kickstart plugins
 - `{ import = 'custom.plugins' }` for all files in `lua/custom/plugins/`
 
@@ -79,6 +84,7 @@ The `lua/lazy-plugins.lua` file imports all plugins via:
 ### Testing Configuration Changes
 
 1. **Test in current session:**
+
    ```vim
    :source %
    " or for Lua files:
@@ -86,6 +92,7 @@ The `lua/lazy-plugins.lua` file imports all plugins via:
    ```
 
 2. **Restart Neovim to test full config:**
+
    ```bash
    nvim
    ```
@@ -141,6 +148,7 @@ Language servers are configured in the `servers` table in `lspconfig.lua`.
 ## Key Customizations
 
 ### Custom Options (lua/custom/options.lua)
+
 - Nerd Font enabled
 - Relative line numbers
 - True color support
@@ -151,6 +159,7 @@ Language servers are configured in the `servers` table in `lspconfig.lua`.
 ### Custom Keymaps (lua/custom/keymaps.lua)
 
 Important mappings:
+
 - `s` - Change character (mapped to `cl`)
 - Arrow keys - Window navigation
 - `ff` - Telescope find files
@@ -190,6 +199,7 @@ Important mappings:
 ## External Dependencies
 
 Required for full functionality:
+
 - Neovim >= 0.10 (targets latest stable/nightly)
 - Git, make, unzip, C compiler (gcc)
 - ripgrep (for Telescope live_grep)
