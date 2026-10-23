@@ -12,6 +12,9 @@ return {
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
+        on_highlights = function(hl, c)
+          hl['@markup.raw.markdown_inline'] = { fg = c.blue }
+        end,
       }
 
       -- Load the colorscheme here.
