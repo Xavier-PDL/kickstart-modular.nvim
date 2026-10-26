@@ -13,6 +13,7 @@ return {
       sign = true,
       width = 'block',
       right_pad = 1,
+      inline = false,
     },
     checkbox = {
       enabled = true,
