@@ -143,7 +143,8 @@ Language servers are configured in the `servers` table in `lspconfig.lua`.
 - **Formatting:** Configured via conform.nvim (`lua/kickstart/plugins/conform.lua`)
   - Triggered with `<leader>f` or auto-format on save (if enabled)
 
-- **Linting:** Configured via nvim-lint (`lua/kickstart/plugins/lint.lua`) — runs `markdownlint` on Markdown files
+- **Linting:** Configured via nvim-lint (`lua/kickstart/plugins/lint.lua`) — no linters enabled; the `markdownlint`
+  setup for Markdown files is commented out
 
 ## Key Customizations
 
