@@ -44,6 +44,17 @@ return {
         return '%2l:%-2v'
       end
 
+      local map = require 'mini.map'
+      map.setup {
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic(),
+          map.gen_integration.gitsigns(),
+        },
+        symbols = { encode = map.gen_encode_symbols.dot '4x2' },
+      }
+      vim.keymap.set('n', '<leader>tm', map.toggle, { desc = '[T]oggle [M]inimap' })
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
