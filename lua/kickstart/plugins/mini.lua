@@ -52,6 +52,7 @@ return {
           map.gen_integration.gitsigns(),
         },
         symbols = { encode = map.gen_encode_symbols.dot '4x2' },
+        window = { winblend = 0 },
       }
       vim.keymap.set('n', '<leader>tm', map.toggle, { desc = '[T]oggle [M]inimap' })
 
